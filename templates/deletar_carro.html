@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Excluir{% endblock %}
+
+{% block conteudo %}
+  <h2>Deletar Carro</h2>
+  <p>Tem certeza de que deseja excluir o carro "{{ carro.modelo }}"?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+    <a href="{% url 'gerenciar_carros' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+{% endblock %}

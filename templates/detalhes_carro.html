@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block titulo %}{{ carro.marca.nome}}{% endblock %}
+
+{% block conteudo %}
+    <div class="card mb-3">
+        <img src="{{ carro.foto.url }}" class="card-img-top" alt="{{ carro.modelo }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ carro.modelo }}</h5>
+            <p class="card-text">Ano: {{ carro.ano }}</p>
+            <p class="card-text">Preço: R$ {{ carro.preco }}</p>
+            <p class="card-text">Marca: {{ carro.marca.nome }}</p>
+            <p class="card-text">{{ carro.descricao }}</p>
+        </div>
+    </div>
+    <a href="{% url 'lista_carros' %}" class="btn btn-secondary">Voltar para a lista</a>
+{% endblock %}

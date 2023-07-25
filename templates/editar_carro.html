@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Editar{% endblock %}
+
+{% block conteudo %}
+  <h2>Editar Carro</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+  </form>
+{% endblock %}

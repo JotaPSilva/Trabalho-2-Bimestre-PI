@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Carros{% endblock %}
+
+{% block conteudo %}
+    <h2>Carros Disponíveis</h2>
+    <div class="row">
+        {% for carro in carros %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ carro.foto.url }}" class="card-img-top" alt="{{ carro.modelo }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ carro.modelo }}</h5>
+                    <p class="card-text">Ano: {{ carro.ano }}</p>
+                    <p class="card-text">Preço: R$ {{ carro.preco }}</p>
+                    <a href="{% url 'detalhes_carro' carro.id %}" class="btn btn-primary">Detalhes</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
